@@ -90,7 +90,7 @@ todo negócio tem, em conversa (não como formulário):
 > "E o que você usa hoje pra cada uma dessas coisas? Pode responder 'nada', é resposta: mensagem
 > com cliente, tarefa e prazo, email, agenda, dinheiro entrando e saindo, ficha do cliente, reunião."
 
-Isso vira o `_contexto/ferramentas.md`. O que ele não tem fica como **não ligada**: é assim que
+Isso vira o `_contexto/integracoes.md`. O que ele não tem fica como **não ligada**: é assim que
 o agente sabe depois que aquilo é possível e está faltando, em vez de achar que não dá. Não ligar
 nada ainda; é só o mapa.
 
@@ -163,7 +163,7 @@ Ler o trecho do perfil em `sistema/templates/perfis/agents-md-<perfil>.md` e pre
 - **`estrategia.md`:** fase, prioridade principal, o que pode esperar, contexto com prazo (data
   absoluta).
 - **`preferencias.md`:** tom no chat, o que evitar, estilo geral.
-- **`ferramentas.md`:** uma linha por ferramenta citada e uma por assunto dos sete (mesmo que
+- **`integracoes.md`:** uma linha por ferramenta citada e uma por assunto dos sete (mesmo que
   "nada"). Colunas: pra quê · como o agente alcança (a decidir no passo 5) · estado (`não ligada`
   por padrão) · última checagem (hoje, AAAA-MM-DD).
 - **`infra.md`:** uma linha por coisa hospedada. Sem chave, sem senha.
@@ -201,10 +201,10 @@ git de propósito: cada computador tem o seu.
 
 ### 6. Conectores (MCPs)
 
-Ler o catálogo em `sistema/templates/ferramentas/catalogo.md` e cruzar com a pergunta 6. Pra cada
+Ler o catálogo em `sistema/templates/integracoes/catalogo.md` e cruzar com a pergunta 6. Pra cada
 ferramenta que tem conector: dizer o que ele faz, mostrar o comando, perguntar se instala agora.
 Instalar só com o sim específico daquele conector; "faz tudo" não vale pra instalar nada.
-Instalou: `ferramentas.md` ganha `ligada` + "MCP" na coluna de alcance. Ficou pra depois: uma
+Instalou: `integracoes.md` ganha `ligada` + "MCP" na coluna de alcance. Ficou pra depois: uma
 pendência no `agora.md` com o comando. Ferramenta fora do catálogo: "não tenho conector pronto pra
 X; se achar um em mcp.so, me passa que eu instalo".
 

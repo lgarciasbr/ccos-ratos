@@ -17,7 +17,7 @@ Essa skill é o segundo passo depois do `/setup`. O setup configurou quem o usu�
 
 1. Ler `_contexto/empresa.md` pra entender o negócio
 2. Ler `_contexto/estrategia.md` pra saber o foco atual
-3. Ler `_contexto/ferramentas.md` (o que está ligado aqui) e o catálogo de ferramentas do kit (linha "modelos e scripts" do mapa; numa instalação nova, `sistema/templates/ferramentas/catalogo.md`) pra saber o que dá pra usar
+3. Ler `_contexto/integracoes.md` (o que está ligado aqui) e o catálogo de ferramentas do kit (linha "modelos e scripts" do mapa; numa instalação nova, `sistema/templates/integracoes/catalogo.md`) pra saber o que dá pra usar
 4. Ler o catálogo de skills externas do kit (`sistema/templates/skills/catalogo.md` numa instalação nova)
 5. Listar as pastas que já existem no workspace (pra não criar duplicatas)
 6. Listar os modelos de skill do kit (`sistema/templates/skills/` numa instalação nova), pra saber o que já temos pronto
@@ -119,7 +119,7 @@ Só criar depois que o usuário confirmar.
 
 ### 3.3: Criar a skill personalizada
 
-Antes de criar, ler `_contexto/ferramentas.md` e o catálogo de ferramentas do kit, e verificar se alguma ferramenta disponível resolve parte do fluxo que o usuário descreveu. Por exemplo:
+Antes de criar, ler `_contexto/integracoes.md` e o catálogo de ferramentas do kit, e verificar se alguma ferramenta disponível resolve parte do fluxo que o usuário descreveu. Por exemplo:
 
 - O processo envolve publicar em rede social? → verificar se Post for Me ou Canva MCP ajudam
 - Precisa gerar imagem? → verificar Gemini ou DALL-E
@@ -154,7 +154,7 @@ Antes de invocar, montar um briefing completo com tudo que você já sabe da ent
 - **Frequência e gatilhos**: quando ele faz isso, o que dispara
 - **Passo a passo**: o fluxo que ele descreveu, sem inventar etapas
 - **Entregável**: se gera arquivo, qual formato e onde salvar
-- **Ferramentas relevantes**: o que de `_contexto/ferramentas.md` e do catálogo do kit se aplica
+- **Ferramentas relevantes**: o que de `_contexto/integracoes.md` e do catálogo do kit se aplica
 - **Contexto do negócio**: pontos de `_contexto/empresa.md` e `_contexto/preferencias.md` que importam (tom de voz, estilo, restrições)
 - **Identidade visual**: se for skill que gera output visual, apontar pra "o guia de design da marca (ver mapa do `AGENTS.md`)", nunca caminho fixo
 - **Onde salvar**: `.claude/skills/nome-da-skill/SKILL.md`

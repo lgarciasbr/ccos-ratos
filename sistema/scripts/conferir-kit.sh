@@ -29,12 +29,12 @@ secao(){ awk -v a="$1" -v b="$2" '$0 ~ a {p=1} $0 ~ b {p=0} p' AGENTS.md; }
 leitura=$(secao '^## 2\.' '^## 5\.')      # boot + mapa + gatilhos
 escrita=$(secao '^## 5\.' '^## 6\.')      # tabela de destinos
 for g in _contexto/empresa.md _contexto/preferencias.md _contexto/agora.md _contexto/estrategia.md \
-         _contexto/ferramentas.md _contexto/infra.md _contexto/marca/ _contexto/pessoas/ \
+         _contexto/integracoes.md _contexto/infra.md _contexto/marca/ _contexto/pessoas/ \
          _memoria/diario/ _memoria/decisoes.md _memoria/recados/; do
   echo "$leitura" | grep -q -- "$g" || falha "gaveta sem gatilho de leitura no AGENTS.md: $g"
   echo "$escrita" | grep -q -- "$g" || falha "gaveta sem linha na tabela de destinos: $g"
 done
-for g in _contexto/empresa.md _contexto/preferencias.md _contexto/estrategia.md _contexto/ferramentas.md \
+for g in _contexto/empresa.md _contexto/preferencias.md _contexto/estrategia.md _contexto/integracoes.md \
          _contexto/infra.md _contexto/agora.md _contexto/marca/design-guide.md _memoria/decisoes.md; do
   [ -e "$g" ] || falha "gaveta declarada no AGENTS.md não existe no disco: $g"
 done

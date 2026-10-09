@@ -44,7 +44,7 @@ O agente vai te fazer algumas perguntas e configurar o sistema pro seu negócio.
 seu-negocio/
 ├── AGENTS.md        as regras, o boot, o mapa e a tabela de destinos (o cérebro, com teto de 180 linhas)
 ├── CLAUDE.md        uma linha: @AGENTS.md
-├── _contexto/       o que o sistema sabe do negócio: empresa, preferências, foco, ferramentas, infra, marca/
+├── _contexto/       o que o sistema sabe do negócio: empresa, preferências, foco, integrações, infra, marca/
 ├── _memoria/        o que aconteceu e por quê: diario/ (um arquivo por dia), decisoes.md, recados/
 ├── sistema/         o motor do kit: scripts e modelos. Você não precisa abrir
 ├── .claude/         as skills

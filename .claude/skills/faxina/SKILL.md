@@ -50,9 +50,9 @@ achou algo. "Nada encontrado" some.
    pastas. Perguntar: entra no mapa ou vai pro arquivo?
 6. **Skills fora da lista.** Toda `SKILL.md` em `.claude/skills/` (raiz e pastas de projeto) tem
    `name` e `description`? Skill de pasta de projeto está citada no `AGENTS.md` daquela pasta?
-7. **Ferramenta fora do `ferramentas.md`.** Cruzar `claude mcp list` (se houver), `.mcp.json` e
+7. **Integração fora do `integracoes.md`.** Cruzar `claude mcp list` (se houver), `.mcp.json` e
    os nomes de variável do `.env` (só o nome, nunca o valor) com as linhas de
-   `_contexto/ferramentas.md`. O que está ligado e não está na tabela: **perguntar** se adiciona.
+   `_contexto/integracoes.md`. O que está ligado e não está na tabela: **perguntar** se adiciona.
    Linha com "última checagem" há mais de 90 dias: perguntar se ainda usa.
 8. **Decisões que se contradizem.** Ler `_memoria/decisoes.md` inteiro e apontar pares que dizem
    coisas opostas sem `Substitui:`. Sugerir a entrada nova que resolve ("substitui: <data>").
@@ -84,7 +84,7 @@ Frases, agrupadas por "o que fiz" / "o que precisa de você" / "o que só avisei
 >
 > **Fiz:** arquivei 14 diários de antes de junho em `_memoria/arquivo/2026/`.
 > **Precisa de você:** o `agora.md` diz que a proposta da Acme está pendente, mas o diário de
-> terça diz que foi enviada; corrijo? · o Canva aparece ligado e não está no `ferramentas.md`;
+> terça diz que foi enviada; corrijo? · o Canva aparece ligado e não está no `integracoes.md`;
 > adiciono? · duas decisões sobre parcelamento se contradizem (12/06 e 03/08); a de agosto
 > substitui a de junho?
 > **Avisei:** o `empresa.md` está com 71 linhas, teto 60. Dá pra tirar a lista de clientes dali

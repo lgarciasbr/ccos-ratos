@@ -82,7 +82,7 @@ Uma mensagem só, no formato "arquivo → o que vai entrar" (as linhas de verdad
 > - `_memoria/diario/2026-09-08.md` → 3 linhas: proposta da Acme enviada; ...
 > - `_contexto/agora.md` → onde paramos: ... · pendência "orçamento gráfica" **sai** (feito)
 > - `_memoria/decisoes.md` → "2026-09-08 (você) [acme]: proposta em 3 parcelas. Por quê: ..."
-> - `_contexto/ferramentas.md` → linha nova: Canva, ligada por MCP
+> - `_contexto/integracoes.md` → linha nova: Canva, ligada por MCP
 >
 > Aplico?
 
@@ -111,14 +111,14 @@ Esperar o sim. Se o usuário quiser mudar algo, ajustar e aplicar.
    se houver, a decisão, o porquê). Quando muda uma decisão anterior, `Substitui: <data>`; a antiga
    fica onde está. Nunca editar linha velha.
 
-5. **`_contexto/`** (`empresa.md`, `estrategia.md`, `preferencias.md`, `ferramentas.md`,
+5. **`_contexto/`** (`empresa.md`, `estrategia.md`, `preferencias.md`, `integracoes.md`,
    `infra.md`, `marca/`, `pessoas/<nome>.md`): acrescentar a linha na seção certa, sem reformatar o
    arquivo. Antes de cada linha, o **checklist das 4 doenças**:
    - **duplicata:** já existe linha dizendo isso? Então não escreve.
    - **contradição:** a linha nova contradiz uma antiga? Então a antiga sai e você diz isso na resposta.
    - **vencido:** tem linha com prazo que já passou? Marcar como vencida e perguntar se sai.
    - **data relativa:** "semana que vem", "mês passado" viram data absoluta (AAAA-MM-DD).
-   Em `ferramentas.md`, atualizar a coluna "última checagem" do que foi usado hoje.
+   Em `integracoes.md`, atualizar a coluna "última checagem" do que foi usado hoje.
    `pessoas/<nome>.md` nasce quando a mesma pessoa ou empresa apareceu em mais de uma sessão
    (conferir no diário); a pasta nasce no primeiro arquivo.
    Arquivo de boot que passou do teto declarado no topo: escrever mesmo assim e avisar em uma linha.
@@ -131,7 +131,7 @@ Esperar o sim. Se o usuário quiser mudar algo, ajustar e aplicar.
 Dizer o que escreveu onde, em poucas linhas, e oferecer o `/syncar` se o sistema está no GitHub:
 
 > Guardado: diário (3 linhas), agora.md (onde paramos + 1 pendência resolvida), 1 decisão,
-> ferramentas.md (+Canva). Quer mandar pro GitHub? É só dizer "synca".
+> integracoes.md (+Canva). Quer mandar pro GitHub? É só dizer "synca".
 
 ## Regras
 

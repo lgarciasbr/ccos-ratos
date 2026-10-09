@@ -47,7 +47,7 @@ diário de outra origem, avisa se o `agora.md` está velho.
 | pra saber... | leia |
 |---|---|
 | o foco do momento, o que pode esperar | `_contexto/estrategia.md` |
-| o que o negócio usa e como o agente alcança (MCP, API, CLI, conta) | `_contexto/ferramentas.md` |
+| o que o negócio usa e como o agente alcança (MCP, API, CLI, conta) | `_contexto/integracoes.md` |
 | que automações estão ligadas (cron, worker, rotina que roda sozinha) | `_contexto/automacoes.md` |
 | onde algo está hospedado (site, domínio, servidor, banco, DNS) | `_contexto/infra.md` |
 | identidade visual e como a marca fala com o cliente | `_contexto/marca/` (começa por `design-guide.md`) |
@@ -70,7 +70,7 @@ tem `marca/` própria usa a dela; sem isso, vale a da raiz.
 - **Antes de salvar qualquer arquivo:** a tabela de destinos (seção 5).
 - **Perguntaram "por quê", ou vai mudar algo já decidido:** `_memoria/decisoes.md`.
 - **Precisa voltar no tempo** ("o que fizemos semana passada", "quando falamos disso"): `_memoria/diario/`.
-- **Vai dizer "não consigo" ou "não tenho acesso":** `_contexto/ferramentas.md` primeiro. Muita coisa
+- **Vai dizer "não consigo" ou "não tenho acesso":** `_contexto/integracoes.md` primeiro. Muita coisa
   que parece impossível só está desligada, e a tabela diz o que dá pra ligar.
 - **Vai trabalhar numa pasta de projeto:** ler o `AGENTS.md`, o `contexto.md` e o `andamento.md` dela.
   Abrir a raiz não carrega a subpasta sozinho: é preciso ir buscar.
@@ -89,7 +89,7 @@ Pedido explícito ("salva isso") é exceção, e passa pela tabela do mesmo jeit
 | fato novo sobre o negócio (cliente, serviço, equipe, preço) | `_contexto/empresa.md` |
 | mudança de rumo, foco ou meta | `_contexto/estrategia.md` |
 | correção ou preferência de trabalho ("não faça mais isso", "prefiro assim") | `_contexto/preferencias.md` |
-| ferramenta nova, acesso novo, "não alcanço isso" | `_contexto/ferramentas.md` |
+| ferramenta nova, acesso novo, "não alcanço isso" | `_contexto/integracoes.md` |
 | automação ligada, desligada ou mudada | `_contexto/automacoes.md` (nasce no primeiro registro: rotina, o que faz, onde roda, quando, origem que assina, como saber se quebrou) |
 | onde algo passou a estar hospedado | `_contexto/infra.md` |
 | onde paramos, pendências | `_contexto/agora.md` |
