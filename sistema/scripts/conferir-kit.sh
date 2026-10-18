@@ -82,10 +82,13 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 # 8. bem-vindo: modelo com os campos que o /setup preenche
-for campo in NOME NEGOCIO RESUMO SABERES PASTAS PASSOS COR_FUNDO COR_DESTAQUE FONTE_TITULO_URL; do
+for campo in NOME NEGOCIO RESUMO SABERES PASTAS PASSOS LOGO DATA; do
   grep -q "{{$campo}}" sistema/templates/bem-vindo.template.html || falha "modelo do bem-vindo sem o campo {{$campo}}"
 done
 [ -f bem-vindo.html ] && grep -q '{{' bem-vindo.html && falha "bem-vindo.html gerado com campo sem preencher"
+for img in logo-ratos-os.webp rato.webp; do
+  [ -f "sistema/templates/bem-vindo/$img" ] || falha "falta a imagem da página de boas-vindas: sistema/templates/bem-vindo/$img"
+done
 
 # 9. travessão em texto que o aluno lê (só aviso: o kit 1.0 tem muito)
 n=$(grep -rl '—' AGENTS.md README.md _contexto _memoria .claude/skills sistema/changelog 2>/dev/null | wc -l | tr -d ' ')

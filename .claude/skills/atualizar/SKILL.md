@@ -17,7 +17,7 @@ carregada); ela lê **só os destinos que vai tocar**. Nada de varrer o sistema 
 velha: varredura é `/faxina`.
 
 Robô, rotina e agente autônomo **não rodam esta skill**: eles escrevem direto no próprio diário
-e em recados (contrato do robô, `AGENTS.md` seção 6).
+e em recados (o contrato do robô, `sistema/contrato-robo.md`).
 
 ## Passo 0 · silencioso
 
@@ -128,10 +128,14 @@ Esperar o sim. Se o usuário quiser mudar algo, ajustar e aplicar.
 
 ## Passo 6 · fechar
 
-Dizer o que escreveu onde, em poucas linhas, e oferecer o `/syncar` se o sistema está no GitHub:
+Dizer o que escreveu onde, em poucas linhas:
 
 > Guardado: diário (3 linhas), agora.md (onde paramos + 1 pendência resolvida), 1 decisão,
-> integracoes.md (+Canva). Quer mandar pro GitHub? É só dizer "synca".
+> integracoes.md (+Canva).
+
+Só ofereça o `/syncar` se a seção 8 do `AGENTS.md` diz que este sistema está no GitHub (o `/syncar`
+escreve essa linha quando liga). Aí, na mesma mensagem: *"Quer mandar pro GitHub? É só dizer
+'synca'."* Sem a linha, não falar de GitHub.
 
 ## Regras
 

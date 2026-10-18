@@ -12,7 +12,7 @@ description: >
 ## Dependências
 
 - **Contexto do negócio:** `_contexto/empresa.md`
-- **Tom de voz:** `_contexto/preferencias.md`
+- **Tom de voz:** o jeito de a marca falar com o cliente e com o público (o tom de voz, na pasta da marca; a linha "marca" do mapa do `AGENTS.md` diz onde ela mora). Sem ele, as preferências do dono (`_contexto/preferencias.md`) servem de base, mas elas dizem como falar com o dono, não com o cliente
 
 ---
 
@@ -63,7 +63,7 @@ Deixar o usuário escolher.
 
 ## Regras
 
-- Tom segue `_contexto/preferencias.md`
+- Tom segue o tom de voz da marca, ajustado à relação com quem recebe
 - Nunca usar linguagem corporativa genérica sem necessidade
 - Assunto do email deve ser específico e descritivo, não vago ("Seguimento", "Proposta")
 - Se for um email de cobrança, ser direto mas sem agressividade

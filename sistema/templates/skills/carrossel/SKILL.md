@@ -22,12 +22,12 @@ Ler o guia de design da marca (a linha "marca" do mapa no `AGENTS.md` da raiz di
 > "Pra criar o carrossel com a tua cara, preciso de algumas coisas. Me conta:
 > 1. Qual a cor principal da tua marca? (hex tipo #FF5C35, ou descreve: "azul escuro", "laranja quente")
 > 2. Tem preferência de fonte? (Se não, eu escolho uma boa pro teu estilo)
-> 3. Estilo geral: clean/minimalista, bold/impactante, editorial/elegante, ou outro?
-> 4. Tem logo? Se sim, joga o arquivo na pasta da marca (te digo o caminho) e me diz o nome"
+> 3. Tem logo? Se sim, joga o arquivo na pasta da marca (te digo o caminho) e me diz o nome"
 
-Com as respostas, preencher o guia de design. A partir da cor principal, gerar variações claras e escuras pra usar nos slides (uma versão mais clara pro destaque sutil, uma mais escura pra fundos). Escolher um fundo escuro e um fundo claro que combinem com o tom da cor (cores quentes pedem fundos mais aconchegantes, cores frias pedem fundos mais neutros).
+Com as respostas, preencher a parte de identidade do guia de design (logo, cores, fontes). O estilo
+visual do carrossel não vai pro guia: é escolha só do carrossel (passo 2 abaixo). A partir da cor principal, gerar variações claras e escuras pra usar nos slides (uma versão mais clara pro destaque sutil, uma mais escura pra fundos). Escolher um fundo escuro e um fundo claro que combinem com o tom da cor (cores quentes pedem fundos mais aconchegantes, cores frias pedem fundos mais neutros).
 
-Se o usuário disser "não sei" ou "escolhe pra mim": usar padrão limpo (fundo escuro #0D0D0D, destaque amarelo #FFD600, Bricolage Grotesque + Instrument Serif).
+Se o usuário disser "não sei" ou "escolhe pra mim": propor uma cor principal e um par de fontes que combinem com o negócio dele (o que ele faz está no contexto do negócio), mostrar e só gravar no guia com o ok.
 
 ### 2. Estilo de design dos slides
 
@@ -69,7 +69,7 @@ O usuário pode trocar depois a qualquer momento: "muda o estilo do carrossel pr
 
 ### 3. Tom de voz
 
-Ler `_contexto/preferencias.md`. Se estiver vazio:
+Ler o tom de voz da marca (na pasta da marca; o carrossel fala com o público, não com o dono). Se não existir ou estiver vazio:
 
 > "Como tu prefere que eu escreva os textos dos slides?
 > - Informal e direto (papo de colega)?
@@ -77,7 +77,7 @@ Ler `_contexto/preferencias.md`. Se estiver vazio:
 > - Técnico e denso?
 > E tem algo que te incomoda em texto de IA? (ex: travessões, emojis, frases curtas demais)"
 
-Salvar em `_contexto/preferencias.md`.
+Salvar no tom de voz da marca (o arquivo `tom-de-voz.md` na pasta da marca; criar se não existir).
 
 ### 4. Contexto do negócio
 
@@ -110,7 +110,7 @@ Avisar o usuário que tá instalando (demora uns 30s na primeira vez).
 - **Identidade visual:** o guia de design da marca (a linha "marca" do mapa no `AGENTS.md` da raiz diz onde ele mora; se o projeto tem `marca/` própria, vale a dele) (preenchido no setup ou antes)
 - **Regras de design:** `references/design-carrossel.md` (dentro desta skill)
 - **Contexto:** `_contexto/empresa.md`
-- **Tom de voz:** `_contexto/preferencias.md`
+- **Tom de voz:** o jeito de a marca falar com o cliente e com o público (o tom de voz, na pasta da marca; a linha "marca" do mapa do `AGENTS.md` diz onde ela mora). Sem ele, as preferências do dono (`_contexto/preferencias.md`) servem de base, mas elas dizem como falar com o dono, não com o cliente
 - **Playwright CLI:** `npx playwright screenshot`
 
 ## Input
@@ -126,7 +126,7 @@ O usuário fornece:
 
 ### Fase 1 — Texto
 
-1. Ler `_contexto/preferencias.md` pra calibrar tom
+1. Ler o tom de voz da marca pra calibrar o texto
 2. Ler `_contexto/empresa.md` pra entender contexto e público
 3. Se o input for um link, buscar o conteúdo com os fallbacks corretos:
    - **Links normais (artigos, blogs, docs):** tentar WebFetch direto. Se falhar ou retornar pouco conteúdo, usar Jina Reader: prefixar a URL com `https://r.jina.ai/` (ex: `https://r.jina.ai/https://exemplo.com/artigo`)
@@ -214,7 +214,7 @@ O usuário fornece:
 - Sem aberturas genéricas: "hoje vamos falar sobre", "neste carrossel tu vai", "muitas pessoas perguntam"
 - Sem fechamentos fracos: "continue no próximo", "swipe pra ver mais", "não para por aí"
 - Sem CTA cordial: "espero que tenha gostado", "se esse conteúdo te ajudou", "não esqueça de seguir"
-- Sem travessões (—) a menos que o preferencias.md diga o contrário
+- Sem travessões (—) a menos que o tom de voz da marca diga o contrário
 - Se soar como template, redação de vestibular ou post genérico de Instagram: reescrever do zero
 
 8. Gerar legenda Instagram:
@@ -322,7 +322,7 @@ Se nenhuma dessas tiver configurada e o Pollinations não servir, orientar o usu
 - Texto aprovado na Fase 1 não muda na Fase 2 (visual fiel ao texto)
 - Sempre mostrar slide 1 antes de renderizar os demais
 - Se o usuário pedir ajuste no visual, editar o HTML e re-renderizar apenas o slide alterado
-- Sem travessões no texto por padrão, a menos que preferencias.md diga o contrário
+- Sem travessões no texto por padrão, a menos que o tom de voz da marca diga o contrário
 - Se o setup já foi feito antes, não repetir as perguntas. Ir direto pro workflow
 - Se faltar algo no meio do caminho (ex: Playwright não instalado), resolver na hora sem travar
 - Regras de design vivem em `references/design-carrossel.md`. Se o usuário quiser mudar algo visual, editar lá

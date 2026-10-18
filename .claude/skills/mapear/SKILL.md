@@ -139,7 +139,9 @@ Quando a 3.1 encontrou um modelo compatível, criar a skill diretamente a partir
 
 1. O frontmatter tem `name` e `description` claros
 2. A skill lê o contexto relevante (`_contexto/preferencias.md`; se for visual, o guia de design da marca, citado pelo nome, nunca por caminho fixo: o mapa do `AGENTS.md` resolve)
-3. O passo a passo reflete o que o usuário descreveu, não um fluxo genérico
+3. O passo a passo reflete o que o usuário descreveu, não um fluxo genérico. A skill fixa o que tem
+   que sair sempre igual (o que entra, onde salva, o que não pode faltar) e deixa a forma pro modelo:
+   sem esqueleto de seções nem layout escrito, a não ser que o usuário peça um formato fixo
 4. Se gera arquivo, a skill indica onde salvar
 5. O tom e formato seguem as preferências do usuário
 6. Se usa ferramenta do catálogo, inclui as instruções de uso dentro da skill
@@ -156,7 +158,7 @@ Antes de invocar, montar um briefing completo com tudo que você já sabe da ent
 - **Entregável**: se gera arquivo, qual formato e onde salvar
 - **Ferramentas relevantes**: o que de `_contexto/integracoes.md` e do catálogo do kit se aplica
 - **Contexto do negócio**: pontos de `_contexto/empresa.md` e `_contexto/preferencias.md` que importam (tom de voz, estilo, restrições)
-- **Identidade visual**: se for skill que gera output visual, apontar pra "o guia de design da marca (ver mapa do `AGENTS.md`)", nunca caminho fixo
+- **Identidade visual**: se for skill que gera output visual, apontar pra "o guia de design da marca (ver mapa do `AGENTS.md`)", nunca caminho fixo. A skill aplica logo, cores e fontes e decide a composição a cada peça; layout fixo só se o usuário pediu que saia sempre igual
 - **Onde salvar**: `.claude/skills/nome-da-skill/SKILL.md`
 
 Passar esse briefing pra skill-creator e deixar ela estruturar a skill. Depois que ela retornar, **revisar o resultado** antes de finalizar:
@@ -172,14 +174,16 @@ Ajustar o que precisar ajustar antes de mostrar pro usuário. Se algo crítico f
 
 Salvar em `.claude/skills/nome-da-skill/SKILL.md` na raiz. Se a skill é de **uma pasta de projeto** (só faz sentido lá, ou vai viajar com ela), salvar em `<pasta>/.claude/skills/nome-da-skill/SKILL.md` e acrescentar a linha dela no `AGENTS.md` daquela pasta ("Habilidades desta pasta").
 
-Se a skill precisar de arquivos de apoio (templates HTML, referências de design, exemplos de output), criar dentro da mesma pasta:
+Se a skill precisar de arquivos de apoio (referências, exemplos de output), criar dentro da mesma pasta:
 
 ```
 .claude/skills/nome-da-skill/
   SKILL.md              ← instruções principais
-  template.html         ← template de output (se aplicável)
   referencia.md         ← material de referência (se aplicável)
+  template.html         ← só se o usuário quer a peça sempre igual (ex: relatório semanal com formato fixo)
 ```
+
+Template HTML trava todas as peças daquela skill no mesmo esqueleto. Sem pedido de formato fixo, não criar.
 
 Depois de criar, **sincronizar a ponte pro Codex enxergar a skill nova** (symlink/junction refletem
 sozinhos; só cópia precisa re-sincronizar de fato). Rodar o script: é idempotente:

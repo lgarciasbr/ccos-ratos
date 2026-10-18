@@ -12,19 +12,17 @@ habilidades do seu dia a dia. Neste arquivo, "você" é o dono do sistema; as in
 
 **Regras gerais**
 
-- Este kit roda no Claude Code e no Codex. `AGENTS.md` é a fonte (este arquivo). `CLAUDE.md` tem uma
-  linha só (`@AGENTS.md`), nunca conteúdo. Skills moram em `.claude/skills/<nome>/SKILL.md`; a ponte
-  `.agents/skills` (o `/setup` cria em cada máquina, fora do git) é como o Codex e os outros agentes
-  enxergam as mesmas skills.
-- Antes de executar uma tarefa, ver se existe skill pra ela. Se existe, seguir a skill. Tarefa sem
-  skill que parece repetível: ao terminar, perguntar "isso pode virar uma skill, quer que eu crie?".
-  Só quando a repetição for clara, nunca em tarefa pontual.
+- Este kit roda no Claude Code e no Codex. `AGENTS.md` é a fonte (este arquivo); `CLAUDE.md` tem
+  uma linha só (`@AGENTS.md`). Skills moram em `.claude/skills/<nome>/SKILL.md`.
+- Antes de executar uma tarefa, ver se existe skill pra ela. Se existe, seguir a skill. Se a mesma
+  tarefa sem skill já apareceu antes (o diário mostra), perguntar ao terminar se vira skill.
+  Tarefa pontual não ganha essa pergunta.
 - Skill nova parte de um modelo do kit quando houver (ver mapa). Skill deste negócio fica em
   `.claude/skills/`; skill de uma pasta de projeto fica em `<pasta>/.claude/skills/` e viaja com ela;
   global (`~/.claude/skills/`) é só o que serve em qualquer projeto e não viaja.
 - Falhou alguma coisa: falar como gente. O que aconteceu, o que continua seguro, qual o próximo passo.
   Erro cru só se pedirem. Nunca parar em silêncio.
-- Antes de salvar um arquivo, criar a pasta (`mkdir -p`). Pasta que nasce vazia leva um `.gitkeep`.
+- Pasta que nasce vazia leva um `.gitkeep`.
 - Com você, o agente fala como `_contexto/preferencias.md` manda. Com o seu cliente, como a marca
   manda. São duas coisas diferentes, e não se misturam.
 
@@ -39,8 +37,8 @@ No início de toda conversa, ler estes três arquivos, e só eles:
 Usar isso naturalmente, sem listar o que leu nem confirmar leitura. Se algum deles ainda tem
 `<!-- NOT CONFIGURED -->`, o sistema não passou pelo `/setup`: dizer isso e oferecer rodar.
 Todo o resto se lê quando a sessão pedir (seção 3) ou quando uma ação disparar (seção 4).
-O `/iniciar` é o ritual completo por cima deste boot: puxa o GitHub, anuncia recados, resume o
-diário de outra origem, avisa se o `agora.md` está velho.
+O `/iniciar` é o ritual completo por cima deste boot: anuncia recados, resume o diário de outra
+origem, avisa se o `agora.md` está velho.
 
 ## 3. O mapa (pra saber X, leia Y)
 
@@ -65,8 +63,10 @@ tem `marca/` própria usa a dela; sem isso, vale a da raiz.
 
 ## 4. Gatilhos de ação (o que ler antes de fazer)
 
-- **Antes de escrever texto ou peça que sai pra fora** (email, proposta, post, slide, página, anúncio):
-  ler a marca (a do projeto se existir, senão a da raiz) e reler o resultado contra ela antes de entregar.
+- **Antes de escrever texto ou peça que sai pra fora** (email, proposta, post, slide, página, anúncio,
+  relatório): ler a marca (a do projeto se existir, senão a da raiz). Ela dá logo, cores, fontes e tom;
+  layout e composição se decidem a cada peça, pelo conteúdo, a não ser que a marca tenha design system.
+  Antes de entregar, conferir logo, cores, fontes e tom.
 - **Antes de salvar qualquer arquivo:** a tabela de destinos (seção 5).
 - **Perguntaram "por quê", ou vai mudar algo já decidido:** `_memoria/decisoes.md`.
 - **Precisa voltar no tempo** ("o que fizemos semana passada", "quando falamos disso"): `_memoria/diario/`.
@@ -108,23 +108,11 @@ origem), sempre acrescentando embaixo, nunca reescrevendo. Decisão é uma entra
 quando muda decisão velha, diz `substitui: <data>` em vez de editar a antiga. Toda entrada durável leva
 data absoluta (nunca "semana passada"). Arquivar em vez de apagar.
 
-## 6. Contrato do robô (rotina, cron, agente autônomo, subagente)
+## 6. Quando quem escreve não é o dono
 
-**Rotina lê muito e escreve pouco: o que ela escreve fica no diário e nos recados dela; criar arquivo
-novo pode, reescrever o que existe não. Quem promove pra memória durável é você, pelo `/atualizar`.**
-
-- Cada origem escreve só no próprio diário (`_memoria/diario/AAAA-MM-DD-<origem>.md`), assinado com o
-  id dela. Duas origens nunca tocam o mesmo arquivo; conflito de sincronização fica impossível por desenho.
-- O nome da origem desta máquina está em `.origem` (o `/setup` cria; fica fora do git). Sem esse
-  arquivo, perguntar antes de escrever no diário. O dono escreve limpo, sem sufixo.
-- Mudança em `_contexto/`, em `decisoes.md` ou em arquivo de trabalho alheio vira **recado**, nunca
-  edição. Recado é um arquivo `_memoria/recados/AAAA-MM-DD-<origem>-<assunto>.md` que começa com
-  `de:`, `quando:` e `precisa de ação: sim/não`. Tratou, apaga (ou leva pro diário se vale registro).
-- Entregável ou rascunho novo a rotina cria direto, de preferência na pasta do projeto dela, e avisa
-  por recado. Arquivo que ela mesma criou e mantém, ela reescreve à vontade.
-- Toda rotina ligada tem uma linha em `_contexto/automacoes.md` (é o inventário do que roda
-  sozinho). Rotina que não está lá não deveria estar rodando.
-- Sessão sem gente na frente não gera memória durável sozinha. Nunca.
+Rotina, cron, agente autônomo, subagente, ou outra pessoa ou computador escrevendo aqui: antes de
+escrever qualquer coisa, ler `sistema/contrato-robo.md`. Em uma linha: escreve no próprio diário e em
+recados, e não edita `_contexto/` nem as decisões. Toda rotina ligada tem linha em `_contexto/automacoes.md`.
 
 ## 7. Regra de recall
 
@@ -135,18 +123,20 @@ Não achou: dizer que não achou.
 ## 8. Fim de sessão (e a oferta ativa)
 
 Sessão que rendeu trabalho termina com `/atualizar`. É ele que escreve o diário, o `agora.md`, as
-decisões e o `_contexto/`, e fecha dizendo o que escreveu onde. Depois dele, `/syncar` se este sistema
-está no GitHub. Nada disso depende de você lembrar: **o agente oferece**. Sinal de encerramento na
-conversa ("era isso", "valeu", "até amanhã") ou tarefa que mudou o contexto (cliente novo, ferramenta
-ligada, decisão tomada, correção do jeito de trabalhar) → o agente pergunta, em uma linha, se roda o
-`/atualizar` agora. Correção dita no meio ("não faça mais isso", "prefiro assim") vira "anotado, salvo
-no fim", e a sessão nunca morre sem essa oferta. Não oferecer em sessão trivial.
+decisões e o `_contexto/`, e fecha dizendo o que escreveu onde. Isso não depende de você lembrar:
+**o agente oferece**. Sinal de encerramento na conversa ("era isso", "valeu", "até amanhã") ou
+tarefa que mudou o contexto (cliente novo, ferramenta ligada, decisão tomada, correção do jeito de
+trabalhar) → o agente pergunta, em uma linha, se roda o `/atualizar` agora. Correção dita no meio
+("não faça mais isso", "prefiro assim") vira "anotado, salvo no fim", e a sessão nunca morre sem essa
+oferta. Não oferecer em sessão trivial.
 
 | comando | o que faz | o que não faz |
 |---|---|---|
 | `/iniciar` | lê o sistema e devolve onde você parou | não escreve nada |
-| `/atualizar` | decide onde cada coisa mora e escreve | não mexe no GitHub |
-| `/syncar` | manda pro GitHub e diz o que subiu | não decide nada |
+| `/atualizar` | decide onde cada coisa mora e escreve | não manda nada pra fora |
+
+<!-- O /syncar acrescenta aqui uma linha quando liga este sistema ao GitHub. Sem ela, o GitHub não
+     entra na conversa: nem oferta, nem lembrete. -->
 
 ## 9. Mapa de pastas
 

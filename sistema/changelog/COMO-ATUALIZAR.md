@@ -93,5 +93,5 @@ Quando todas as mudanças da versão estiverem aplicadas ou recusadas: escrever 
 (é assim que a próxima versão sabe de onde ele parte). Se sobrou mudança pra próxima rodada,
 `.ratosos` fica como estava e a rodada seguinte continua daqui.
 
-Se a instalação tem git e o `/syncar` existe: oferecer sincronizar. Depois, dizer em três linhas o
+Se a seção 8 do `AGENTS.md` dele diz que o sistema está no GitHub: oferecer sincronizar. Depois, dizer em três linhas o
 que mudou e o que ficou de fora.

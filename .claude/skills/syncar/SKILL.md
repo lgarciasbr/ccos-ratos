@@ -137,6 +137,23 @@ proposta Acme + diário"); sem saber, `sync (<origem>): atualizações do dia`. 
 Não dizer "seu trabalho está seguro": dizer **o que** subiu. Se algo ficou de fora (segredo, pesado),
 repetir o quê e por quê.
 
+### 5. Deixar o sistema lembrando do GitHub (só na primeira vez)
+
+O `AGENTS.md` do kit não fala de GitHub: quem nunca ligou não deve ouvir falar disso a cada
+conversa. Depois de um envio que deu certo, conferir se a seção 8 do `AGENTS.md` já diz que o sistema
+está no GitHub (`grep -q 'Este sistema está no GitHub' AGENTS.md`). Não diz: trocar o comentário que fala do `/syncar` (logo
+abaixo da tabela de comandos) por isto, e contar em uma linha ("a partir de agora, no fim das
+sessões eu ofereço mandar pro GitHub"):
+
+```markdown
+| `/syncar` | manda pro GitHub e diz o que subiu | não decide nada |
+
+Este sistema está no GitHub: depois do `/atualizar`, oferecer o `/syncar` na mesma linha.
+```
+
+Se o comentário não existe (instalação antiga ou mexida), acrescentar a linha no fim da tabela e a
+frase logo abaixo dela.
+
 ## Fluxo C · sem mudanças
 
 > "Nada novo pra subir. Está tudo sincronizado."

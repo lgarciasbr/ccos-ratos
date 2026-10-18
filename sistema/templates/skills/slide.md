@@ -1,68 +1,38 @@
 ---
 name: slide
 description: >
-  Cria um slide ou card visual em HTML pra usar em apresentações, decks ou posts.
-  Aplica a identidade visual do usuário (o guia de design da marca).
+  Cria um slide ou card visual em HTML pra apresentação, deck ou post, com a identidade da marca
+  do usuário.
   Use quando o usuário pedir "faz um slide", "cria um card", "quero um visual pra apresentação",
   "frame pra deck", ou pedir um slide sobre algum tema específico.
 ---
 
-# /slide — Criação de Slide ou Card Visual
+# /slide · slide ou card
 
-## Dependências
+## O que ler antes
 
-- **Identidade visual:** o guia de design da marca (a linha "marca" do mapa no `AGENTS.md` da raiz diz onde ele mora; se o projeto tem `marca/` própria, vale a dele)
+A marca (a linha "marca" do mapa do `AGENTS.md`; se o projeto tem `marca/` própria, vale a dela):
+logo, cores e fontes. Se o texto vai pra fora, o jeito de falar com o cliente também.
 
----
+## 1. Entender o pedido
 
-## Workflow
+O tema e o formato. Se o formato não está claro, perguntar: card 1:1 (1080×1080), slide 16:9
+(1920×1080) ou story 9:16 (1080×1920).
 
-### Passo 1 — Entender o que o usuário quer
+## 2. Fazer
 
-Se não estiver claro, perguntar:
-1. "Qual é o tema ou conteúdo do slide?"
-2. "Qual é o formato? (card quadrado 1:1, slide wide 16:9, story vertical 9:16)"
-3. "É um slide de dados/estatística, texto/insight, diagrama/fluxo, ou visual/imagem?"
+Um HTML único, no tamanho exato do formato, que funcione como print: tudo dentro da área, sem
+rolagem, legível de longe. CSS no próprio arquivo; fonte externa, só do Google Fonts.
 
-### Passo 2 — Ler o design guide
+A composição você decide pelo conteúdo: um número, uma frase, uma comparação e um fluxo pedem
+desenhos diferentes. A marca entra com cores, fontes e, quando fizer sentido, o logo (a versão
+certa pro fundo). Sem guia de design preenchido: visual limpo, sem inventar uma marca.
 
-Ler o guia de design da marca pra aplicar as cores e fontes corretas.
-Se estiver vazio, usar padrão: fundo escuro, acento amarelo, Bricolage Grotesque.
+## 3. Salvar e mostrar
 
-### Passo 3 — Gerar o HTML
-
-Criar um arquivo HTML único, com dimensões específicas pro formato pedido:
-- Card 1:1: 1080x1080px
-- Slide 16:9: 1920x1080px
-- Story 9:16: 1080x1920px
-
-**Tipos de layout por conteúdo:**
-
-*Dado/estatística:*
-- Número em destaque grande (80-120px)
-- Label descritivo pequeno abaixo
-- Fundo de cor sólida ou gradiente sutil
-
-*Texto/insight:*
-- Título em serif italic grande
-- Corpo em sans-serif, até 3 frases
-- Elemento gráfico de destaque (linha, box, destaque de cor)
-
-*Diagrama/fluxo:*
-- Usar CSS para criar caixas, setas e conexões
-- Layout horizontal ou vertical conforme o conteúdo
-
-### Passo 4 — Salvar
-
-Salvar em `conteudo/slides/slide-[tema]-[data].html`
-
-Renderizar com Playwright se disponível e mostrar o resultado.
-
----
+Na pasta de conteúdo do mapa de pastas do `AGENTS.md` (ou na do projeto), com o tema e a data no
+nome. Se tem Playwright, renderizar em PNG e mostrar.
 
 ## Regras
 
-- Um slide por vez — se o usuário quer vários, criar um de cada vez e confirmar antes do próximo
-- Inline CSS, sem dependências externas além do Google Fonts
-- O slide deve funcionar como screenshot — tudo visível dentro da área, sem scroll
-- Se o design guide tiver logo definido na seção **Logo**, pode incluir no slide quando fizer sentido (ex: canto inferior, assinatura). Escolher a versão correta conforme o fundo do slide
+- Vários slides: fazer o primeiro, mostrar, e seguir com o ok.

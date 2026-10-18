@@ -1,54 +1,41 @@
-# Guia de Design — Agência Exemplo
+# Guia de Design · exemplo de agência (com design system)
 
-> Exemplo preenchido pra você ter referência.
-> Copie e adapte pro seu guia de design (a linha "marca" do mapa no `AGENTS.md` diz onde ele mora; numa instalação nova é `_contexto/marca/design-guide.md`).
-
----
-
-## Cores
-
-- **Fundo principal:** #0F0F0F
-- **Cor de destaque / CTA:** #FF5C35
-- **Texto principal:** #F5F5F5
-- **Fundo alternativo / cards:** #1A1A1A
-- **Cor proibida:** verde-limão, cores neón em geral
+> Exemplo preenchido pra você ter referência. Aqui a agência tem um manual de marca com componentes,
+> então a parte 2 está preenchida e manda. Sem manual, a parte 2 fica vazia (ver o exemplo de
+> solopreneur). O guia de verdade mora onde a linha "marca" do mapa do `AGENTS.md` diz.
 
 ---
 
-## Tipografia
+## 1. Identidade
 
-- **Títulos e destaques:** Syne (bold, weight 700-800)
-- **Corpo, subtítulos e botões:** DM Sans (weight 400-500)
-- **Peso do título:** extrabold
+### Logo
 
----
+- **Arquivo:** `logo.svg` (nesta pasta)
+- **Versão pra fundo claro:** `logo-dark.svg`
 
-## Estilo geral
+### Cores
 
-Dark e bold. Interface de agência de performance: sem frescura, sem decoração. Cada elemento tem uma função. O laranja (#FF5C35) aparece só em CTAs e destaques críticos.
+- **Principal:** #FF5C35 (laranja)
+- **Fundo:** #0F0F0F
+- **Texto:** #F5F5F5
+- **Apoio:** #1A1A1A
+- **Cor proibida:** verde-limão e neon em geral
 
----
+### Fontes
 
-## Elementos-chave
+- **Títulos:** Syne
+- **Texto:** DM Sans
 
-- Bordas: solid 1px com opacidade baixa
-- Border-radius dos cards: 12px
-- Botões: pill com border-radius: 50px, fundo laranja
-- Sombras: não
+### Clima
 
----
-
-## O que NUNCA fazer
-
-- Usar verde em qualquer tom
-- Cards com muito rounding (> 16px parece infantil no nosso posicionamento)
-- Gradiente como fundo de seção inteira
+Escura, firme, de agência de performance. Sem enfeite.
 
 ---
 
-## Logo
+## 2. Design system (opcional)
 
-- **Arquivo:** logo.svg (na pasta da marca, junto do guia)
-- **Versão pra fundo claro:** logo-dark.svg
-- **Onde usar:** slide final do carrossel (CTA), header de propostas, slides de apresentação
-- **Tamanho sugerido:** largura entre 120-200px nos HTMLs
+Veio do manual de marca que a agência mandou (`manual-marca.pdf`, nesta pasta).
+
+- O laranja aparece só em botão e em número que importa, nunca como fundo de seção
+- Cards com arredondamento de até 12px; botão em pílula
+- Sem sombra e sem gradiente

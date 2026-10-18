@@ -29,9 +29,9 @@ O agente vai te fazer algumas perguntas e configurar o sistema pro seu negócio.
 
 **Skills prontas pra usar:**
 - `/setup`: configura o sistema pro seu negócio (comece por aqui)
-- `/iniciar`: abre a sessão: puxa o GitHub, carrega o contexto, anuncia recados e diz onde você parou
+- `/iniciar`: abre a sessão: carrega o contexto, anuncia recados e diz onde você parou
 - `/atualizar`: fecha a sessão: escreve o diário do dia, o "onde paramos", as decisões e o contexto, e diz o que escreveu onde
-- `/syncar`: manda o trabalho pro GitHub e diz o que subiu
+- `/syncar` (opcional): guarda uma cópia no GitHub e diz o que subiu. Quem não liga nunca ouve falar dele
 - `/novo-projeto`: cria pasta de projeto ou cliente com contexto próprio
 - `/mapear`: entrevista você sobre o dia a dia e cria skills personalizadas
 - `/compartilhar`: prepara uma pasta de projeto pra sair daqui como repositório próprio (cliente, sócio)
@@ -51,7 +51,7 @@ seu-negocio/
 └── clientes/ propostas/ conteudo/ ...   as pastas de trabalho, conforme o seu perfil
 ```
 
-Três comandos que você vai confundir no começo: `/iniciar` lê, `/atualizar` escreve, `/syncar` manda pro GitHub.
+Dois comandos que você vai confundir no começo: `/iniciar` lê, `/atualizar` escreve.
 
 **Se você já tinha a versão anterior do kit** (a que tinha `dados/` e `marca/` na raiz): não precisa
 mudar nada se o seu sistema te atende. Quando quiser atualizar: descompacte este kit **ao lado** da

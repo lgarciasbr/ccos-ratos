@@ -1,95 +1,45 @@
 ---
 name: analisar-dados
 description: >
-  Analisa um arquivo de dados (CSV, Excel, TXT, JSON) e gera um resumo executivo
-  com os principais insights, tendências e recomendações.
+  Analisa um arquivo de dados (CSV, Excel, TXT, JSON) e entrega o que ele mostra: o que importa,
+  o que preocupa e o que fazer. Em texto, ou num relatório HTML pra compartilhar.
   Use quando o usuário disser "analisa esse arquivo", "o que mostram esses dados",
   "resume esses resultados", "analisa esse relatório", ou arrastar um arquivo de dados.
 ---
 
-# /analisar-dados — Análise de Arquivo
+# /analisar-dados · o que esses dados dizem
 
-## Dependências
+## O que ler antes
 
-- **Contexto do negócio:** `_contexto/empresa.md` (pra entender o que os dados representam)
-- **Tom de voz:** `_contexto/preferencias.md`
+O contexto do negócio, pra saber o que os números significam pra ele. Se o resultado vai virar
+relatório pra fora, a marca também (logo, cores, fontes).
 
----
+## 1. Entender a pergunta
 
-## Workflow
+Se não está claro pelo arquivo, perguntar uma coisa só: o que ele quer descobrir com esses dados.
+Análise sem pergunta vira lista de números.
 
-### Passo 1 — Entender o contexto
+## 2. Ler e conferir
 
-Antes de analisar, perguntar se não estiver claro:
-- "O que é esse arquivo? (vendas, anúncios, métricas, respostas de pesquisa...)"
-- "Qual é a pergunta principal que você quer responder com esses dados?"
+Ler o arquivo inteiro. Antes de concluir qualquer coisa, olhar se os dados fecham: linhas vazias,
+período incompleto, coluna que não bate. Problema achado vem antes da análise, dito em uma frase.
 
-Se o contexto estiver óbvio pelo nome do arquivo ou pelo conteúdo, prossegue sem perguntar.
+## 3. Analisar
 
-### Passo 2 — Ler o arquivo
+Responder a pergunta dele, com os números que sustentam a resposta. Vale procurar o que não aparece
+numa leitura rápida (comparação com o período anterior, concentração, o que destoa). Terminar com o
+que fazer, em ações concretas.
 
-Ler o arquivo fornecido. Se for Excel (.xlsx), ler com as ferramentas disponíveis pra extrair o conteúdo das células.
+A forma você decide pelo que os dados mostram: às vezes é um parágrafo e uma tabela, às vezes um
+gráfico explica melhor que três parágrafos. Sem esqueleto fixo de seções.
 
-### Passo 3 — Análise
+## 4. Entregar
 
-Identificar e reportar:
-
-**O que está bom:**
-- Métricas acima da média ou em crescimento
-- Padrões positivos nos dados
-- Top performers (produtos, campanhas, períodos, etc)
-
-**O que preocupa:**
-- Quedas, anomalias ou tendências negativas
-- O que está abaixo do esperado
-- Gargalos ou desperdícios visíveis
-
-**Comparações:**
-- Período atual vs período anterior (se houver)
-- Top vs bottom performers
-- Distribuição entre categorias
-
-**Insights não óbvios:**
-- Correlações interessantes
-- Padrões que não aparecem na leitura superficial
-
-### Passo 4 — Output
-
-Gerar um resumo executivo em prosa (não só bullet points):
-
-```markdown
-# Análise — [Nome do Arquivo/Relatório]
-*[Data da análise]*
-
-## O que esses dados mostram
-[2-3 parágrafos com o panorama geral]
-
-## O que está funcionando
-[lista com contexto]
-
-## O que merece atenção
-[lista com contexto]
-
-## 3 recomendações
-1. [ação concreta]
-2. [ação concreta]
-3. [ação concreta]
-
-## Números-chave
-| Métrica | Valor | Contexto |
-|---------|-------|---------|
-| ... | ... | ... |
-```
-
-Salvar em `estudos/analise-[nome]-[data].md` ou na pasta mais adequada pro perfil do usuário.
-
-Perguntar se quer exportar o resumo em HTML pra compartilhar ou apresentar.
-
----
+Responder no chat. Se ele quer guardar ou compartilhar, salvar na pasta do projeto (ou na que o mapa
+de pastas indicar), em markdown ou num HTML que abre sozinho no navegador. No HTML, a marca entra
+com logo, cores e fontes; layout e gráficos você escolhe pelo conteúdo.
 
 ## Regras
 
-- Análise em prosa, não só listas — o usuário deve poder ler e entender sem abrir o arquivo original
-- Nunca inventar dados que não estão no arquivo
-- Se os dados estiverem incompletos ou com problemas, mencionar antes de analisar
-- Tom conforme `_contexto/preferencias.md`
+- Não inventar número que não está no arquivo. Estimativa é dita como estimativa.
+- Escrito pra quem não vai abrir o arquivo original entender.

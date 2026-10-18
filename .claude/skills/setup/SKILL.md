@@ -3,8 +3,8 @@ name: setup
 description: >
   Configura o RatosOS pro seu negócio: entrevista curta (quem você é, o que faz, o que usa,
   onde suas coisas moram na internet, como a sua marca é), preenche a memória do sistema,
-  cria as pastas de trabalho, prepara este computador e termina com a página bem-vindo.html
-  na sua identidade visual.
+  cria as pastas de trabalho, prepara este computador e termina com a página bem-vindo.html,
+  o resumo do que ele aprendeu.
   Use quando o usuário chamar /setup, quando _contexto/empresa.md tiver <!-- NOT CONFIGURED -->,
   ou quando disser "configurar o sistema", "primeira vez", "setup", "começar do zero".
 ---
@@ -105,11 +105,18 @@ senha." Isso vira o `_contexto/infra.md`. Se não tem nada, tudo bem: a tabela f
 > "Pode me mandar o link do site, jogar uns prints na pasta da marca (`_contexto/marca/`) e me
 > dizer os nomes, descrever em texto (cores, estilo, fontes), ou dizer que ainda não tem."
 
-- **URL:** buscar com WebFetch, analisar cores dominantes, tipografia, estilo. Mostrar o que viu
-  antes de preencher: *"Vi no seu site: fundo X, destaque Y, tipografia sem serifa, estilo Z. Bate?"*
-- **Prints:** ler como imagem, analisar, mostrar antes de preencher.
+- **URL:** buscar com WebFetch e tirar só a identidade: a cor principal, fundo, texto, as fontes e o
+  logo, mais uma linha de clima. Nada de arredondamento, sombra, botão ou estrutura de página: o site
+  é uma peça da marca, não a regra de todas. Mostrar antes de preencher: *"Vi no seu site: principal
+  X, fundo Y, títulos em Z. Bate?"*
+- **Prints:** ler como imagem, tirar o mesmo, mostrar antes de preencher.
 - **Texto:** usar direto.
-- **Não tem:** o guia fica com os campos em branco e um visual neutro até lá. Dizer isso em uma frase.
+- **Não tem:** o guia fica em branco e cada peça escolhe um visual limpo até lá. Dizer isso em uma frase.
+
+**Design system (só se existir):** se ele mandou um manual de marca, um Figma, um design system, ou
+disse com todas as letras que quer tudo igual ao site, perguntar se as peças devem seguir aquilo à
+risca. Com o sim, o resumo dos componentes vai pra parte 2 do guia (e o arquivo, se tiver, fica na
+pasta da marca). Sem isso, a parte 2 fica vazia: é ela que separa "a marca" de "um molde".
 
 **Logo (sempre):** "Tem o logo em PNG ou SVG? Se tiver, joga na pasta da marca e me diz o nome. Se
 tiver versão pra fundo claro e escuro, manda as duas." Registrar na seção Logo do guia.
@@ -180,7 +187,8 @@ Ler o trecho do perfil em `sistema/templates/perfis/agents-md-<perfil>.md` e pre
 
 ### 3. `_contexto/marca/`
 
-`design-guide.md` com o que foi dito (ou em branco com orientação). `tom-de-voz.md` novo, curto:
+`design-guide.md` com o que foi dito: a parte 1 (identidade) com logo, cores, fontes e clima; a parte
+2 só se ele tem design system (pergunta 8). Campo sem resposta fica em branco. `tom-de-voz.md` novo, curto:
 tratamento (tu/você), registro (formal/informal), o que nunca dizer, e o exemplo colado, se houver.
 
 ### 4. Pastas de trabalho
@@ -212,18 +220,22 @@ X; se achar um em mcp.so, me passa que eu instalo".
 
 Ler `sistema/templates/bem-vindo.template.html`, preencher e salvar `bem-vindo.html` na raiz.
 
-- **Cores e fontes vêm do `design-guide.md` recém-preenchido**: `COR_FUNDO`, `COR_CARD` (fundo
-  alternativo), `COR_TEXTO`, `COR_TEXTO_FRACO` (o texto com opacidade), `COR_DESTAQUE`,
-  `COR_LINHA` (destaque bem clarinho), `FONTE_TITULO` e `FONTE_CORPO` (nome legível) e as versões
-  `_URL` (nome com `+` no lugar de espaço, ex: `Bricolage+Grotesque:wght@400;600;800`). Guia vazio:
-  fundo `#FAF7F2`, card `#F3EFE8`, texto `#1C1917`, fraco `#6B645C`, destaque `#C96442`, linha
-  `#E4DDD3`, título `Instrument Serif`, corpo `Bricolage Grotesque`.
-- `LOGO`: `<img class="logo" src="_contexto/marca/<arquivo>" alt="">` se tem logo; vazio se não.
-- `NOME`, `NEGOCIO`, `RESUMO` (uma frase do que ele faz, nas palavras dele), `SABERES` (4 a 6
-  `<li>` com pedaços reais das respostas: "que 70% do seu movimento vem de arquiteto", não
-  "contexto configurado"), `PASTAS` (as pastas de trabalho como linhas do bloco da árvore, uma por pasta, no formato `<b>clientes/</b>       <i>uma pasta por cliente, com contexto próprio</i>`, alinhando a coluna dos comentários com as linhas fixas de cima), `PASSOS` (três
+A página tem a cara da Ratos de IA (quem fez o kit), não a da marca dele: cor, fonte e layout já
+estão no modelo, e as imagens moram em `sistema/templates/bem-vindo/`. O comentário do topo fica no
+arquivo final: é ele que avisa que a página não é referência pras peças do negócio.
+
+- `DATA`: hoje, `DD/MM/AAAA`.
+- `NOME` (só o primeiro nome), `NEGOCIO`, `RESUMO` (uma frase do que ele faz, nas palavras dele).
+- `SABERES`: 4 a 6 `<li>` com pedaços reais das respostas ("70% do seu movimento vem de
+  arquiteto"), não "contexto configurado". Cada um em uma ou duas frases.
+- `PASTAS`: as pastas de trabalho, uma por pasta, no formato
+  `<div class="no meu"><b>clientes/</b><p>uma pasta por cliente</p></div>`.
+- `PASSOS`: três
   `<div class="passo"><div class="n">1</div><div><b>...</b><p>...</p></div></div>`: rodar
-  `/mapear`; conectar ao GitHub com `/syncar`; fechar a primeira sessão com `/atualizar`).
+  `/mapear`; pedir a primeira tarefa de verdade, algo que ele faz toda semana (citar uma das
+  entregas que ele contou); fechar a sessão com `/atualizar`. Comando vai em `<code>`.
+- `LOGO`: se ele tem logo, `<div class="logo-cliente"><img src="_contexto/marca/<arquivo>" alt=""></div>`;
+  vazio se não.
 - Texto na voz dele (`preferencias.md`), frases curtas, **sem travessão**, sem "mergulhe",
   "desbloqueie", "jornada". Nada que ele não tenha dito.
 - Conferir que não sobrou `{{` no arquivo: `grep -c '{{' bem-vindo.html` tem que dar 0.
@@ -237,19 +249,21 @@ provar que funcionou com três fatos concretos:
 > estrategia.md], e comigo você quer [uma preferência]. Bateu?"
 
 Errou algo: corrigir no arquivo e mostrar a linha. Conferência silenciosa junto: nenhum dos três
-do boot ainda tem `<!-- NOT CONFIGURED -->`; `.origem` existe; `bem-vindo.html` sem `{{`.
+do boot ainda tem `<!-- NOT CONFIGURED -->`; `.origem` existe; `bem-vindo.html` sem `{{`. O setup
+não escreve nada sobre `/syncar` no `AGENTS.md`: quem faz isso é o próprio `/syncar`, quando ligar.
 
 ## Mensagem final
 
 > "[Nome], seu sistema está configurado. Abre o `bem-vindo.html` que está na pasta: é o resumo
-> do que eu aprendi, na sua cara.
+> do que eu aprendi sobre você.
 >
 > O que existe agora: `AGENTS.md` (as regras e o mapa) · `_contexto/` (negócio, preferências,
 > foco, ferramentas, infra, marca) · `_memoria/` (vai enchendo sozinha a cada sessão) · pastas de
 > [perfil] · [N] conectores instalados, [N] anotados pra depois.
 >
-> Duas coisas: chave de API vai sempre num arquivo `.env`, que nunca sai daqui. E pra não perder
-> trabalho, conecta ao GitHub com `/syncar` (2 minutos).
+> Chave de API vai sempre num arquivo `.env`, que nunca sai daqui. Se um dia você quiser cópia na
+> nuvem ou usar o sistema em outro computador, o `/syncar` liga o GitHub em 2 minutos. Se não
+> quiser, tudo bem: eu não volto no assunto.
 >
 > Próximo passo: `/mapear`, pra eu entender o seu dia a dia e criar skills pra ele."
 
